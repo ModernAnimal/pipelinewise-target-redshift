@@ -19,7 +19,7 @@ setup(name="pipelinewise-target-redshift",
       py_modules=["target_redshift"],
       install_requires=[
           'boto3==1.*',
-          'psycopg2-binary>=2.*',
+          'psycopg2-binary',
           'inflection==0.*',
           'joblib==1.*'
       ],
