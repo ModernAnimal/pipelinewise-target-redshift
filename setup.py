@@ -18,13 +18,11 @@ setup(name="pipelinewise-target-redshift",
       ],
       py_modules=["target_redshift"],
       install_requires=[
-          'pipelinewise-singer-python',
           'boto3==1.*',
           'psycopg2-binary>=2.*',
           'inflection==0.*',
           'joblib==1.*'
       ],
-      dependency_links=['https://github.com/transferwise/pipelinewise-singer-python/tarball/master#egg=pipelinewise-singer-python'],
       extras_require={
           "test": [
                 "pylint==2.4.2",
