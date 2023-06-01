@@ -24,7 +24,7 @@ setup(name="pipelinewise-target-redshift",
           'inflection==0.*',
           'joblib==1.*'
       ],
-      dependency_links=['https://github.com/transferwise/pipelinewise-singer-python/tarball/master#pipelinewise-singer-python']
+      dependency_links=['https://github.com/transferwise/pipelinewise-singer-python/tarball/master#pipelinewise-singer-python'],
       extras_require={
           "test": [
                 "pylint==2.4.2",
