@@ -18,8 +18,8 @@ setup(name="pipelinewise-target-redshift",
       ],
       py_modules=["target_redshift"],
       install_requires=[
-          'pipelinewise-singer-python==1.*',
-          'boto3==1.12.39',
+          'pipelinewise-singer-python==2.*',
+          'boto3==1.*',
           'psycopg2-binary>=2.9.6',
           'inflection==0.4.0',
           'joblib==0.16.0'
