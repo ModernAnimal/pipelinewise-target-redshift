@@ -72,6 +72,8 @@ class TestTargetRedshift(object):
         json_bool =         {"type": ["boolean"]            }
         json_obj =          {"type": ["object"]             }
         json_arr =          {"type": ["array"]              }
+        json_decimal =      {"type": ["number"]             , "format": "decimal"}
+        json_decimal_custom = {"type": ["number"]           , "format": "decimal", "precision": 10, "scale": 4}
         
         # Mapping from JSON schema types ot Redshift column types
         assert mapper(json_str)          == 'character varying(10000)'
@@ -86,6 +88,10 @@ class TestTargetRedshift(object):
         assert mapper(json_bool)         == 'boolean'
         assert mapper(json_obj)          == 'character varying(65535)'
         assert mapper(json_arr)          == 'character varying(65535)'
+        assert mapper(json_decimal)       == 'numeric(18,2)'
+        assert mapper(json_decimal_custom) == 'numeric(10,4)'
+        # Verify with_length=False returns just 'numeric' for decimal types
+        assert mapper(json_decimal, with_length=False) == 'numeric'
 
 
     def test_stream_name_to_dict(self):
