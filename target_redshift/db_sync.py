@@ -64,6 +64,11 @@ def column_type(schema_property, with_length=True):
     elif property_format == 'time':
         column_type = 'character varying'
         varchar_length = SHORT_VARCHAR_LENGTH
+    # decimal format maps to numeric with configurable precision and scale
+    elif property_format == 'decimal':
+        precision = schema_property.get('precision', 18)
+        scale = schema_property.get('scale', 2)
+        column_type = 'numeric({},{})'.format(precision, scale)
     elif 'number' in property_type:
         column_type = 'double precision'
     elif 'integer' in property_type and 'string' in property_type:
